@@ -1,0 +1,19 @@
+pipeline {
+  agent 'elk'
+  load '../files/env_vars'
+  environment {
+    a=$(cat env_vars)
+  }
+  stages {
+    stage('Echo $a') {
+      steps {
+        echo "$a"
+      }
+    }
+  }
+  post {
+    always {
+      cleanWs()
+    }
+  }
+}
