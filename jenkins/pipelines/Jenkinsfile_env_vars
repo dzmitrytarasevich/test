@@ -3,7 +3,6 @@ pipeline {
     label 'elk'
   }
   load './jenkins/files/env_vars'
-  environment {}
   stages {
     stage('Echo env_vars') {
       steps {
