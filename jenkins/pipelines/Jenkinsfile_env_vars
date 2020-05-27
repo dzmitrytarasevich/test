@@ -1,13 +1,15 @@
 pipeline {
   agent 'elk'
-  load '../files/env_vars'
-  environment {
-    a=$(cat ../files/env_vars)
-  }
+  load './jenkins/files/env_vars'
+  environment {}
   stages {
-    stage('Echo $a') {
+    stage('Echo env_vars') {
       steps {
-        echo "$a"
+        sh """
+          for i in "${strings[@]}"; do
+            echo "$i"
+          done
+	"""
       }
     }
   }
