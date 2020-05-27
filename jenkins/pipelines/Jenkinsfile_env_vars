@@ -2,11 +2,10 @@ pipeline {
   agent {
     label 'elk'
   }
-  load './jenkins/files/env_vars'
   stages {
     stage('Echo env_vars') {
       steps {
-        sh 'for i in "${strings[@]}"; do echo "$i"; done'
+        sh 'for i in "$(cat ../files/env_vars)"; do echo "$i"; done'
       }
     }
   }
