@@ -5,11 +5,7 @@ pipeline {
   stages {
     stage('Echo env_vars') {
       steps {
-        sh """
-          for i in "${strings[@]}"; do
-            echo "$i"
-          done
-	"""
+        sh 'for i in "${strings[@]}"; do echo "$i"; done'
       }
     }
   }
