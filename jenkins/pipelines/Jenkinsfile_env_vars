@@ -1,5 +1,7 @@
 pipeline {
-  agent 'elk'
+  agent {
+    label 'elk'
+  }
   load './jenkins/files/env_vars'
   environment {}
   stages {
