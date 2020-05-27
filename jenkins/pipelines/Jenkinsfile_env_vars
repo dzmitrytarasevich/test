@@ -3,11 +3,6 @@ pipeline {
     label 'elk'
   }
   stages {
-    stage('list directory') {
-      steps {
-        sh 'ls -la'
-      }
-    }
     stage('Echo env_vars') {
       steps {
         sh 'for i in "$(cat jenkins/files/env_vars)"; do echo "$i"; done'
