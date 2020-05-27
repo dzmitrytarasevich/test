@@ -2,7 +2,7 @@ pipeline {
   agent 'elk'
   load '../files/env_vars'
   environment {
-    a=$(cat jenkins/files/env_vars)
+    a=$(cat ../files/env_vars)
   }
   stages {
     stage('Echo $a') {
